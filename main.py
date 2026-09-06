@@ -13,13 +13,6 @@ import json
 torch.manual_seed(1337) # 随机数种子
 random.seed(1337)
 
-save_dir = './log/test_3'
-
-os.makedirs(save_dir, exist_ok=True)
-ckpt_path = f'{save_dir}/GPT.pt'
-loss_path = f'{save_dir}/loss.tsv'
-config_path = f'{save_dir}/config.json'
-
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 print('device: ',device)
 
@@ -44,6 +37,13 @@ warmup_iters = int(iters * 0.05)
 # 早停参数
 early_stop_patience = 10
 early_stop_min_delta = 0.001
+
+# 记录log
+save_dir = f'./log/dm-{d_model}_nl-{nums_layer}_nh-{nums_head}_lr-{learning_rate}_it-{iters}'
+os.makedirs(save_dir, exist_ok=True)
+ckpt_path = f'{save_dir}/GPT.pt'
+loss_path = f'{save_dir}/loss.tsv'
+config_path = f'{save_dir}/config.json'
 
 cfg = {
     'iters': iters,
