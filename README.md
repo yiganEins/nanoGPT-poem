@@ -55,7 +55,7 @@ pip install torch sentencepiece numpy pandas
 ...
 ```
 
-> 注意：`poems.ch` 和训练好的分词器模型文件体积较大，未包含在仓库中，请自行准备语料。
+> 注意：`poems.ch` 体积较大，未包含在仓库中，如果需要训练模型请自行准备语料。
 
 ### 2. 训练分词器
 
@@ -67,8 +67,8 @@ pip install torch sentencepiece numpy pandas
 
 ```python
 if __name__ == '__main__':
-    train()
-    # test()
+    train() # 训练模型
+    # test() # 推理生成
 ```
 
 然后运行：
